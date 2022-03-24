@@ -42,6 +42,15 @@ else{cookiewert = a.substr(a.indexOf('=')+1,a.length);
       }
 
     }
+
+    //New Order Sidebar
+   newOrder() {
+   let order = document.getElementById('new-order');
+   order.classList.add ('d-none');
+   let sidebar = document.getElementById('sidebar');
+   sidebar.classList.remove ('d-none');
+}
+   
     
 
   

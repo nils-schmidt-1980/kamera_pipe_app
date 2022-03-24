@@ -1,4 +1,8 @@
 class Assignments extends General {
+
+    navMenu = new Navmenu();
+    checkbox = new CheckCheckbox();
+
     detailInspect = document.getElementById('insepct-detail');
     mapsAdress = document.getElementById('map-adress');
     orderContainer = document.getElementById('order-list-container');
@@ -6,6 +10,8 @@ class Assignments extends General {
     contactInformation = document.getElementById('contact-information');
     bodyContainer = document.getElementById('order-container');
     contactContainer = document.getElementById('contact-container');
+
+    
 
 
     constructor() {
@@ -85,9 +91,7 @@ class Assignments extends General {
                 
                 
             }
-           
-         
-        
+
     }
 
     showOverlays() {

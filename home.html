@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,100;1,200;1,400&family=Peddana&display=swap" rel="stylesheet"> 
 <script src="./js/models/general.class.js"></script>
 <script src="./js/models/showAssignments.class.js"></script>
+<script src="./js/models/navMenu.class.js"></script>
 <script src="./js/models/inputs.class.js"></script>
+<script src="./js/models/checkbox.class.js"></script>
     
     
     <title>Kanal-TV-App</title>
@@ -19,7 +21,7 @@
 <body onload="init()">
     <header>
         <div class="header-widgit">
-            <a href="#" onclick="openMenu()"><img class="icon" src="./images/icons/white/menu.gif" alt=""></a>
+            <a href="#" onclick="show.navMenu.openMenu()"><img class="icon" src="./images/icons/white/menu.gif" alt=""></a>
             <div id="menu" class="d-none">
                 <ul id="menu-list">
                     
@@ -49,13 +51,11 @@
                 <!--JavaScript-->
             </div>
 
-
-       
-
-        <div id="new-order" onclick="newOrder()">
+        <div id="new-order" onclick="show.newOrder()">
             +
         </div>
  </main>
+
  <aside id="sidebar" class="d-none">
      <div class="sidebar-header">
          <img src="./images/icons/white/close.png" onclick="closeSidebar()" id="close" class="icon close-sidebar" alt="">
@@ -65,7 +65,7 @@
      <div class="select-bar">
          <span class="gray">Manuelle Eingabe</span>
          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" onclick="checkCheckbox()" role="switch" id="check-manual">
+            <input class="form-check-input" type="checkbox" onclick="show.checkbox.checkCheckbox()" role="switch" id="check-manual">
           </div>
      </div>
 

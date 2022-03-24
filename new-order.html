@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,100;1,200;1,400&family=Peddana&display=swap" rel="stylesheet"> 
+    <script src="./js/models/general.class.js"></script>
+    <script src="./js/models/inputs.class.js"></script>
+    <script src="./js/models/showAssignments.class.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>Inspektion erstellen</title>
+</head>
+<body onload="init()">
+
+    <header class="flex">
+        <div class="header-widgit">
+            <a href="#" onclick="openMenu()"><img class="icon" src="./images/icons/white/menu.gif" alt=""></a>
+            <div id="menu" class="d-none">
+                <ul id="menu-list">
+                    <!--JavaScript-->
+                </ul>
+            </div>
+            </div>
+             <h1 class="text-center">Kanal-Inspektor</h1>
+        </div>
+    </header>
+
+    <main>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Stammdaten</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Inspektionsdaten</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Gebäudedaten</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <a href="./home.html"><img class="icon" style="margin-top:10px;" src="./images/icons/blue/close-blue.png" alt=""></a>
+            </li>
+          </ul>
+
+          <!--Stammdaten-->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane padding fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="owner-main">
+                    <span>Eigentümer?</span>
+                    <div class="form-check form-switch">
+                        <input onclick="checkOwner()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                      </div>
+                </div>
+
+                <div class="row">
+                  <!--Vorläufige Kundennummer-->
+                  <div class="col margin" style="margin-top: 16px;">
+                    <input type="text"  class="form-control"  id="bv-kundennummer" placeholder="Kundennummer" aria-label="First name">
+                  </div>
+                </div>
+
+                <form>
+                    <h2 class="color-blue form-heading">Einsatzort</h2>
+                    <div class="row">
+                        <div class="col margin">
+                          <input type="text" class="form-control"  id="bv-firstname" placeholder="Vorname" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" value="" class="form-control" id="bv-lastname" placeholder="Nachname" aria-label="Last name">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col margin"><input value="" type="text" class="form-control" id="bv-company" placeholder="Firma" aria-label="Last name"></div>
+                    </div>
+
+                      <div class="row">
+                        <div class="col-6 margin">
+                          <input type="text" value="" class="form-control" id="bv-street" placeholder="Strasse" aria-label="First name">
+                        </div>
+                        <div class="col-2 margin">
+                          <input type="text" value="" class="form-control" id="bv-housenumber" placeholder="Hausnummer" aria-label="Last name">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="bv-zip" placeholder="PLZ" aria-label="First name">
+                        </div>
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="bv-location" placeholder="Ort" aria-label="Last name">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="bv-tel-work" placeholder="Telefon-Arbeit" aria-label="First name">
+                        </div>
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="bv-tel-private" placeholder="Telefon-Privat" aria-label="Last name">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col margin">
+                            <input type="text" value="" class="form-control" id="bv-email" placeholder="E-Mail" aria-label="Last name">
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="bv-url" placeholder="URL" aria-label="Last name">
+                        </div>
+                    </div>
+
+                <div id="owner" class="d-none">
+                    <hr>
+
+                    <h2 class="color-blue form-heading">Eigentümer/Rechnungsempfänger</h2>
+    
+                    <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-firstname" placeholder="Vorname" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" value="" class="form-control" id="owner-lastname" placeholder="Nachname" aria-label="Last name">
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col margin"><input value="" type="text" class="form-control" id="owner-company" placeholder="Firma" aria-label="Last name"></div>
+                    </div>
+    
+                      <div class="row">
+                        <div class="col-6 margin">
+                          <input type="text" value="" class="form-control" id="owner-street" placeholder="Strasse" aria-label="First name">
+                        </div>
+                        <div class="col-2 margin">
+                          <input type="text" value="" class="form-control" id="owner-housenumber" placeholder="Hausnummer" aria-label="Last name">
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-zip" placeholder="PLZ" aria-label="First name">
+                        </div>
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-location" placeholder="Ort" aria-label="Last name">
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-tel-work" placeholder="Telefon-Arbeit" aria-label="First name">
+                        </div>
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-tel-private" placeholder="Telefon-Privat" aria-label="Last name">
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                          <div class="col margin">
+                            <input type="text" value="" class="form-control" id="owner-email" placeholder="E-Mail" aria-label="Last name">
+                          </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col margin">
+                          <input type="text" value="" class="form-control" id="owner-url" placeholder="URL" aria-label="Last name">
+                        </div>
+                    </div>
+                </div>
+
+                
+                   
+                </form>
+            </div>
+
+            <!--Leitungsdaten-->
+            <div class="tab-pane padding fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                <div class="line-data">
+                    <div id="owner-date">
+                        <span>Datum / Uhrzeit:</span>
+                    </div>
+                    <div style="flex:1;">
+                        <span>Wetter Daten:</span>
+                    </div>
+
+                    <div class="col">
+                        <label for="inspector" class="form-label"><span>Name Inspektor:</span></label>
+                        <input type="text" class="form-control" id="inspector">
+                      </div>
+                        
+                       
+                          
+                          <div>
+                            <span>Werkstoff:</span>
+                            <select class="form-select" id="material" size="3" aria-label="size 3 select example">
+                                <option selected>Wählen Sie einen Werkstoff aus:</option>
+                                <option value="PVC-Leitung">PVC</option>
+                                <option value="Steinzeug-Leitung">Steinzeug</option>
+                                <option value="Drainage-Leitung">Drainage</option>
+                              </select>
+                            </div>
+                        
+
+                        <div>
+                          <span>Leitungsdurchmesser:</span>
+                            <select class="form-select" size="3" id="line-diameter" aria-label="size 3 select example">
+                                <option selected>Wählen Sie einen Leitungsdurchmesser aus:</option>
+                                <option value="50mm">50mm</option>
+                                <option value="70mm">70mm</option>
+                                <option value="100mm">100mm</option>
+                                <option value="125mm">125mm</option>
+                                <option value="150mm">150mm</option>
+                                <option value="200mm">200mm</option>
+                              </select>
+                        </div>
+
+                        <div class="flex1">
+                          <span>Gebäudezustand:</span>
+                        <div>
+                          <select class="form-select" id="building-condition" aria-label="Default select example">
+                            <option selected>Bitte wählen...</option>
+                            <option value="Bestand">Bestand</option>
+                            <option value="Neubau">Neubau</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <span>Entwässerungssytem:</span>
+                      <div class="flex">
+                        <select class="form-select" id="drainage-system" aria-label="Default select example">
+                          <option selected>Bitte wählen...</option>
+                          <option value="Schmutzwasser">Schmutzwasser</option>
+                          <option value="Regenwasser">Regenwasser</option>
+                          <option value="Mischwasser">Mischwasser</option>
+                          <option value="Unbekanntes System">Unbekannt</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <span>Inspektionszweck:</span>
+                    <div class="flex">
+                      <select class="form-select" id="inspection-purpose" aria-label="Default select example">
+                        <option selected>Bitte wählen...</option>
+                        <option value="Routineuntersuchung">Routineuntersuchung</option>
+                        <option value="Verdacht auf Rohrbruch">Verdacht auf Rohrbruch</option>
+                        <option value="Kontrolle nach einer Rohrsanierung">Kontrolle einer Rohrsanierung</option>
+                      </select>
+                    </div>
+                  </div>
+
+                        <div class="flex1">
+                                <span>Fließrichrung:</span>  
+                          <div class="form-check form-switch flex">
+                                <input onclick="checkDirection()" class="form-check-input" type="checkbox" role="switch"  id="check-direction" checked>
+                                <label id="label-check-direction" class="form-check-label" for="check-direction">In die Fließrichtung</label>
+                                <img src="./images/icons/red/arrow-down.png" id="icon-direction" alt="">
+                              </div>
+                             </div>
+
+                             <div class="full-widgit">
+
+                                <div class="row">
+                                    <div class="col margin">
+                                      <input type="text" class="form-control" id="stance-designation" placeholder="Haltungsbezeichnung" aria-label="First name">
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col margin">
+                                      <input type="text" class="form-control" id="job-id" placeholder="Auftragskennung:" aria-label="First name">
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col margin">
+                                      <input type="text" class="form-control" id="community" placeholder="Gemeinde:" aria-label="First name">
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col margin">
+                                      <input type="text" class="form-control" id="initial-node" placeholder="Anfangsknoten:" aria-label="First name">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Interne Bemerkung" id="interval-remark" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Interne Bemerkung:</label>
+                                  </div>
+
+
+                             </div>
+
+                             
+                </div>
+
+                <div class="col-12 flex">
+                  <button class="btn btn-primary" onclick="saveInputs()" type="submit">Speichern</button>
+                </div>
+
+            </div>
+
+           <!--Gebäudedaten-->
+              <div class="tab-pane padding fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="sat-maps">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d256.07261993199364!2d10.340221266124457!3d53.56770926982762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1f6c0a52ba685%3A0x911d344fd3c1a0d8!2sM%C3%B6llner%20Landstra%C3%9Fe%203%2C%2022969%20Witzhave!5e1!3m2!1sde!2sde!4v1647162763856!5m2!1sde!2sde" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              
+                <div>
+                  <h1 class="color-blue" >--TESTZWECKE--</h1>
+                  <div>
+                    <ul id="testzwecke">
+                      
+                    </ul>
+                    <!--JavaScript-->
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+</html>

@@ -416,7 +416,7 @@ aside {
     justify-content: center; 
     margin-top: 8px;
     margin-bottom: 8px;
-    min-width: 600px;
+    max-width: 600px;
 }
 
 
@@ -427,7 +427,7 @@ aside {
     background-color: #fff;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    width: 400px;
+    min-width: 400px;
 }
 
 

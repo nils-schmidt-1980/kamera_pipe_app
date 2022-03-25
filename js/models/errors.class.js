@@ -1,0 +1,13 @@
+class Errors {
+
+    errorInput = [
+
+    ];
+
+    
+    constructor() {
+
+    }
+
+
+}

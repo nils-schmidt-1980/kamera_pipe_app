@@ -1,4 +1,5 @@
 class Input extends General  {
+    //errors = new Errors();
 
     //read my Inputs Values
     kundenNummer = document.getElementById('bv-kundennummer').value

@@ -1,6 +1,8 @@
 let inputs;
 let show;
 let ScreenStart; 
+let alerts;
+
 
 function init() {
     show = new Assignments() 
@@ -23,6 +25,9 @@ function init() {
         const today = new Date(); // aktuelles Datum und aktuelle Zeit
         document.getElementById('owner-date').innerHTML = today;
         show.navMenu.showNavMenu();
+        inputs = new Input();
+        alerts = new Alerts();
+        validate = new Validate();
     }
 
     else if(window.location.pathname == '/overlay.html') {
@@ -45,6 +50,8 @@ function closeVbo() {
 function openVbo() {
     document.getElementById('video-box-overlay').classList.remove ('d-none');
 }
+
+
 
 
 

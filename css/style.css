@@ -165,6 +165,7 @@ header {
     justify-content:space-between;
     align-items: center;
     background-color: #0F256E;
+    padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 30px;
@@ -260,6 +261,37 @@ main {
     margin-top: 25px;
     cursor: pointer;
     padding-bottom: 10px;
+}
+
+.alert-main-bar {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+    background-color: #f8d7da !important;
+}
+
+#alert-container {
+    position: absolute;
+    left: 780px;
+    background-color: #f8d7da !important;
+    min-width: 600px !important;
+}
+
+.alert {
+    padding-top: 0 !important;
+    
+}
+
+.alert li {
+    color: red !important;
+}
+
+.alert-close {
+    cursor: pointer;
+}
+
+.alert-close:hover {
+    opacity: 0.3;
 }
 
 .new-order:hover {
@@ -502,6 +534,7 @@ aside {
     border-bottom: 1px solid gray;
     margin-bottom: 5px;
     margin-top: 5px;
+    outline: none;
 }
 
 .select-bar {
@@ -722,5 +755,16 @@ aside {
 .form-select {
     outline: none !important;
 }
+
+.form-switch{
+    position:relative !important;
+}
+
+.alert-danger {
+    background-color: #f8d7da !important;
+    border: none !important;
+}
+
+
 
 

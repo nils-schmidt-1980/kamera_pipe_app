@@ -2,6 +2,8 @@ class Assignments extends General {
 
     navMenu = new Navmenu();
     checkbox = new CheckCheckbox();
+    url;
+   
 
     detailInspect = document.getElementById('insepct-detail');
     mapsAdress = document.getElementById('map-adress');
@@ -19,7 +21,7 @@ class Assignments extends General {
     }
 
     showHome() {
-        console.log(this.newOrderArr)
+        
             if(this.newOrderArr.length == 0) {
                 this.orderContainer.innerHTML += `<p class='empty-text'>Es liegen zurzeit keine offenen Inspektionen vor.<br>
                 Füge einen neuen Auftrag hinzu</p>`;
@@ -29,9 +31,11 @@ class Assignments extends General {
                 this.orderContainer.innerHTML = '';
                 for (let i = 0; i < this.newOrderArr.length; i++) {
                     let element = this.newOrderArr[i];
+                    this.url = i;
+                   
                     this.setCookie([i]);
                     this.orderContainer.innerHTML += `
-                <a href='./overlay.html'>
+                <a href=${'./overlay.html?' + this.url}>
                 <div class="order-list-box">
                     <div class="order-list-content">
                         <div class='text-center' style='font-size:35px'>
@@ -94,7 +98,15 @@ class Assignments extends General {
 
     }
 
+    readIndex() {
+        let uebernahme=new String(document.location.href);
+        let uebergabe=uebernahme.indexOf("?");
+        let a=new String(uebernahme.substring(uebergabe+1,uebergabe+2));
+        return a;
+    }
+
     showOverlays() {
+        console.log(this.readIndex())
         this.showOverlayHeader();
         this.showOverlayBody();
         this.showContact();
@@ -106,9 +118,9 @@ class Assignments extends General {
         this.detailInspect.innerHTML = '';
         this.detailInspect.innerHTML += `
         <h1>Inspektionsdetails</h1>
-        <p class="text-center adress">${this.newOrderArr[index]+['bv-firstname']} ${this.newOrderArr[index]+['bv-lastname']}<br>
+        <p class="text-center adress">${this.newOrderArr[this.readIndex()]['bv-firstname']} ${this.newOrderArr[this.readIndex()]['bv-lastname']}<br>
         <br>
-       Auftragsnummer:  ${this.newOrderArr[index]+['bv-customersnumbers']}
+       Auftragsnummer:  ${this.newOrderArr[this.readIndex()]['bv-customersnumbers']}
         </p>
 
                                     ` ;
@@ -116,19 +128,19 @@ class Assignments extends General {
         this.mapsAdress.innerHTML = '';
         this.mapsAdress.innerHTML += `
          <p>
-         ${this.newOrderArr[index]['bv-street']} ${this.newOrderArr[index]['bv-housenumber']}<br>
-         ${this.newOrderArr[index]['bv-zip']} ${this.newOrderArr[index]['bv-location']}
+         ${this.newOrderArr[this.readIndex()]['bv-street']} ${this.newOrderArr[this.readIndex()]['bv-housenumber']}<br>
+         ${this.newOrderArr[this.readIndex()]['bv-zip']} ${this.newOrderArr[this.readIndex()]['bv-location']}
         <span class="small-font"></span>
         </p>
         `
                                 
         }
 
-    showOverlayBody(index) {
+    showOverlayBody() {
        this.contactInformation.innerHTML = '';
        this.contactInformation.innerHTML +=` <h1>Kontakt Informationen</h1>
-                                                <p class="text-center adress">${this.newOrderArr[0]['bv-lastname']}<br>
-                                                ${this.newOrderArr[index]['bv-customersnumbers']}
+                                                <p class="text-center adress">${this.newOrderArr[this.readIndex()]['bv-lastname']}<br>
+                                                ${this.newOrderArr[this.readIndex()]['bv-customersnumbers']}
                                                 </p>`;
 
        this.bodyContainer.innerHTML = '';
@@ -136,7 +148,7 @@ class Assignments extends General {
        <div class="order-container-top">
                     <div class="flex">
                        <img src="./images/icons/black/settings.png" class="icon" alt="">
-                       <h3>${this.newOrderArr[index]['bv-firstname']} ${this.newOrderArr[index]['bv-lastname']}</h3>
+                       <h3>${this.newOrderArr[this.readIndex()]['bv-firstname']} ${this.newOrderArr[this.readIndex()]['bv-lastname']}</h3>
                     </div>
        
                     <div>
@@ -151,7 +163,7 @@ class Assignments extends General {
                 <hr>
        
                 <p class="small-heading">Bemerkungen:</p>
-                <span>${this.newOrderArr[index]['interval-remark']}</span>
+                <span>${this.newOrderArr[this.readIndex()]['interval-remark']}</span>
        `
     }
 
@@ -160,26 +172,26 @@ class Assignments extends General {
         this.contactContainer.innerHTML += `
        <div class="overview-box flex1">
        <strong class="d-block">Einsatzort:</strong>
-       Name: ${this.newOrderArr[index]['bv-firstname']} ${this.newOrderArr[index]['bv-lastname']}<br>
-       Firma: ${this.newOrderArr[index]['bv-company']}<br>
-       Strasse: ${this.newOrderArr[index]['bv-street']} ${this.newOrderArr[index]['bv-housenumber']}}<br>
-       Plz/Ort: ${this.newOrderArr[index]['bv-zip']} ${this.newOrderArr[index]['bv-location']}<br>
-       Tel Arbeit: ${this.newOrderArr[index]['bv-workphone']}<br>
-       Tel Privat: ${this.newOrderArr[index]['bv-privatephone']}<br>
-       E-Mail: ${this.newOrderArr[index]['bv-email']}<br>
-       Url: ${this.newOrderArr[index]['bv-url']}
+       Name: ${this.newOrderArr[this.readIndex()]['bv-firstname']} ${this.newOrderArr[this.readIndex()]['bv-lastname']}<br>
+       Firma: ${this.newOrderArr[this.readIndex()]['bv-company']}<br>
+       Strasse: ${this.newOrderArr[this.readIndex()]['bv-street']} ${this.newOrderArr[this.readIndex()]['bv-housenumber']}}<br>
+       Plz/Ort: ${this.newOrderArr[this.readIndex()]['bv-zip']} ${this.newOrderArr[this.readIndex()]['bv-location']}<br>
+       Tel Arbeit: ${this.newOrderArr[this.readIndex()]['bv-workphone']}<br>
+       Tel Privat: ${this.newOrderArr[this.readIndex()]['bv-privatephone']}<br>
+       E-Mail: ${this.newOrderArr[this.readIndex()]['bv-email']}<br>
+       Url: ${this.newOrderArr[this.readIndex()]['bv-url']}
    </div>
 
    <div class="overview-box flex1">
        <strong class="d-block">Rechnungsempfänger:</strong>
-       Name: ${this.newOrderArr[index]['owner-firstname']} ${this.newOrderArr[index]['owner-lastname']}<br>
-       Firma: ${this.newOrderArr[index]['owner-company']}<br>
-       Strasse: ${this.newOrderArr[index]['owner-street']} ${this.newOrderArr[index]['owner-housenumber']}<br>
-       Plz/Ort: ${this.newOrderArr[index]['bv-zp']} ${this.newOrderArr[index]['bv-location']}<br>
-       Tel Arbeit: ${this.newOrderArr[index]['owner-workphone']}<br>
-       Tel Privat: ${this.newOrderArr[index]['owner-privatephone']}<br>
-       E-Mail: ${this.newOrderArr[index]['owner-email']}<br>
-       Url: ${this.newOrderArr[index]['owner-url']}
+       Name: ${this.newOrderArr[this.readIndex()]['owner-firstname']} ${this.newOrderArr[this.readIndex()]['owner-lastname']}<br>
+       Firma: ${this.newOrderArr[this.readIndex()]['owner-company']}<br>
+       Strasse: ${this.newOrderArr[this.readIndex()]['owner-street']} ${this.newOrderArr[this.readIndex()]['owner-housenumber']}<br>
+       Plz/Ort: ${this.newOrderArr[this.readIndex()]['bv-zp']} ${this.newOrderArr[this.readIndex()]['bv-location']}<br>
+       Tel Arbeit: ${this.newOrderArr[this.readIndex()]['owner-workphone']}<br>
+       Tel Privat: ${this.newOrderArr[this.readIndex()]['owner-privatephone']}<br>
+       E-Mail: ${this.newOrderArr[this.readIndex()]['owner-email']}<br>
+       Url: ${this.newOrderArr[this.readIndex()]['owner-url']}
    </div>
 
    <div class="break"></div>
@@ -192,64 +204,64 @@ class Assignments extends General {
 
    <div class="overview-box">
        <strong class="d-block">Name Inspektor:</strong>
-       ${this.newOrderArr[index]['inspector-name']}
+       ${this.newOrderArr[this.readIndex()]['inspector-name']}
    </div>
 
    <div class="overview-box">
        <strong class="d-block">Werkstoff:</strong>
-       ${this.newOrderArr[index]['material']}
+       ${this.newOrderArr[this.readIndex()]['material']}
    </div>
 
    <div class="overview-box">
        <strong class="d-block">Leitungsdurchmesser:</strong>
-       ${this.newOrderArr[index]['line-diameter']}
+       ${this.newOrderArr[this.readIndex()]['line-diameter']}
    </div>
 
    <div class="overview-box flex1">
        <strong class="d-block">Gebäudezustand:</strong>
-       ${this.newOrderArr[index]['building-condition']}
+       ${this.newOrderArr[this.readIndex()]['building-condition']}
    </div>
 
    <div class="overview-box flex1">
        <strong class="d-block">Entwässerrungssystem:</strong>
-       ${this.newOrderArr[index]['drainage-system']}
+       ${this.newOrderArr[this.readIndex()]['drainage-system']}
    </div>
 
    <div class="overview-box flex1">
        <strong class="d-block">Inspektionszweck:</strong>
-       ${this.newOrderArr[index]['inspection-purpose']}
+       ${this.newOrderArr[this.readIndex()]['inspection-purpose']}
    </div>
 
    <div class="overview-box flex1">
        <strong class="d-block">Fliessrichtung:</strong>
-       ${this.newOrderArr[index]['check-direction']}
+       ${this.newOrderArr[this.readIndex()]['check-direction']}
    </div>
 
    <div class="break"></div>
 
    <div class="overview-box" style="width: 100%;">
        <strong>Haltungsbezeichnung:</strong>
-       ${this.newOrderArr[index]['stance-designation']}
+       ${this.newOrderArr[this.readIndex()]['stance-designation']}
    </div>
 
    <div class="overview-box" style="width: 100%;">
        <strong>Auftragskennung:</strong>
-       ${this.newOrderArr[index]['job-id']}
+       ${this.newOrderArr[this.readIndex()]['job-id']}
    </div>
 
    <div class="overview-box" style="width: 100%;">
        <strong>Gemeinde:</strong>
-       ${this.newOrderArr[index]['community']}
+       ${this.newOrderArr[this.readIndex()]['community']}
    </div>
 
    <div class="overview-box" style="width: 100%;">
        <strong>Anfangsknoten:</strong>
-       ${this.newOrderArr[index]['initial-node']}
+       ${this.newOrderArr[this.readIndex()]['initial-node']}
    </div>
 
    <div class="overview-box" style="width: 100%;">
        <strong class="d-block">Interne Bemerkung:</strong>
-       ${this.newOrderArr[index]['interval-remark']}
+       ${this.newOrderArr[this.readIndex()]['interval-remark']}
    </div>
 
    

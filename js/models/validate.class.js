@@ -1,33 +1,62 @@
-class Validate extends Input {
+class Validate extends Input   {
+    errors = new Errors().errorInput;  
+    alerts = new Alerts(this.errors);
+    
 
     constructor () {
-
+      super();
     }
+
+   
 
     checkInputsrequire() {
         if(this.kundenNummer == '') {
-            this.errors.errorInput.push('Bitte geben Sie eine Kundennummer an!')
+            this.errors.push('Bitte geben Sie eine Kundennummer an!')
         }
-        else if(this.firstname == ''){
-            this.errors.errorInput.push('Bitte geben Sie einen Vornamen an')
+        if(this.firstname == ''){
+            this.errors.push('Bitte geben Sie einen Vornamen an')
         }
-        else if(this.lastname == '') {
-            this.errors.errorInput.push('Bitte geben Sie einen Nachnamen ein')
+        if(this.lastname == '') {
+            this.errors.push('Bitte geben Sie einen Nachnamen ein')
         }
-        else if(this.street == '') {
-            this.errors.errorInput.push('Bitte geben Sie eine Strasse ein')
+        if(this.street == '') {
+            this.errors.push('Bitte geben Sie eine Strasse ein')
         }
-        else if(this.housenumber == '') {
-            this.errors.errorInput.push('Bitte geben Sie eine Hausnummer an')
+        if(this.housenumber == '') {
+            this.errors.push('Bitte geben Sie eine Hausnummer an')
         }
-        else if(this.zip == '') {
-            this.errors.errorInput.push('Bitte geben Sie eine Postleitzahl ein')
+        if(this.zip == '') {
+            this.errors.push('Bitte geben Sie eine Postleitzahl ein')
         }
-        else if(this.location == '') {
-            this.errors.errorInput.push('Bitte geben Sie einen Ort an')
+
+        if(isNaN(this.zip)) {
+            this.errors.push('Die Postleitzahl ist ungültig')
         }
-        else if(this.telPrivate == '') {
-            this.errors.errorInput.push('Bitte geben Sie eine Telefonnummer an (Private)')
+
+        if(this.location == '') {
+            this.errors.push('Bitte geben Sie einen Ort an')
+        }
+
+        if(!isNaN(this.location)) {
+            this.errors.push('Der Ort ist ungültig')
+        }
+
+        if(this.telPrivate == '') {
+            this.errors.push('Bitte geben Sie eine Telefonnummer an (Private)')
+        }
+
+        
+        this.checkarr();
+    }
+
+    checkarr() {    
+        if(this.errors == '') {
+            new Input().saveInputsValues();
+            new General().savelocalstorage();
+            this.alerts.successfulAlert();
+
+        }else {
+           this.alerts.createAlert();
         }
     }
 }

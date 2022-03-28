@@ -1,6 +1,6 @@
-class Input extends General  {
-    //errors = new Errors();
-
+class Input   {
+genaral = new General();
+    
     //read my Inputs Values
     kundenNummer = document.getElementById('bv-kundennummer').value
     firstname = document.getElementById('bv-firstname').value
@@ -84,14 +84,11 @@ class Input extends General  {
         }
 
     constructor() {
-        super();
-        this.saveInputsValues();
+      
     }
 
     saveInputsValues() {
-        this.newOrderArr.push(this.newOrderJson);
-        console.log(this.newOrderArr);
-        this.savelocalstorage();
-        
+        this.genaral.newOrderArr.push(this.newOrderJson);
+        this.genaral.savelocalstorage();
     }
 }

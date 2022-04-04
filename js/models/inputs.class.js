@@ -39,6 +39,13 @@ genaral = new General();
     community = document.getElementById('community').value
     initialNode = document.getElementById('initial-node').value
     intervalRemark = document.getElementById('interval-remark').value
+    
+
+    //home-sidebar-inputs**manuel enter**
+    sidebarName = document.getElementById('sidebar-input-name').value
+    sidebarStreet = document.getElementById('sidebar-input-street').value
+    sidebarZip = document.getElementById('sidebar-input-zip').value
+    sidebarLocation = document.getElementById('sidebar-input-location').value
 
     //Input Json
     newOrderJson = 

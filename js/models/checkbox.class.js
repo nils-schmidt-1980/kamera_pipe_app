@@ -7,10 +7,14 @@ class  CheckCheckbox extends General {
     checkCheckbox() {
     if (document.getElementById('check-manual').checked) {
         document.getElementById('heading-searchbox').innerHTML = 'Neuen Kunden anlegen';
+        document.getElementById('content-info').innerHTML +=`<p>
+        Hier können Sie einen Kunden anlegen und für die weitere bearbeitung abspeichern.
+    </p>`
         document.getElementById('sidebar-input').classList.add ('d-none');
         document.getElementById('input-order').classList.remove ('d-none');
         document.getElementById('search-btn').innerHTML = 'Übernehmen';
     }else {
+        document.getElementById('content-info').innerHTML = '';
         document.getElementById('heading-searchbox').innerHTML = 'Suche nach';
         document.getElementById('sidebar-input').classList.remove ('d-none');
         document.getElementById('input-order').classList.add ('d-none');

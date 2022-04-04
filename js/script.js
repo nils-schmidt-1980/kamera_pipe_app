@@ -51,6 +51,33 @@ function openVbo() {
     document.getElementById('video-box-overlay').classList.remove ('d-none');
 }
 
+//Toogles
+function toogleImgMenu() {
+    document.getElementById('img-menu').classList.toggle ('d-none');
+}
+
+function checkClose(check) {
+    if (check == 'close') {
+        document.location = './home.html';
+    }else {
+       
+        document.getElementById('btn-safe').disabled = true;
+        document.getElementById('btn-close').disabled = true;
+        document.getElementById('btn-abort').disabled = true;
+        document.getElementById('status-info').classList.remove ('d-none')
+        document.getElementById('status-info').innerHTML += `
+        <div class="d-flex align-items-center">
+            <strong style='margin-right:16px;'>Eingaben werden gespeichert</strong>
+            <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+          </div>`
+        setTimeout(() => {
+            document.location = './home.html';
+        }, 5500);
+    }
+}
+
+
+
 
 
 

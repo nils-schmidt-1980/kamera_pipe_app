@@ -15,6 +15,7 @@
 <script src="./js/models/inputs.class.js"></script>
 <script src="./js/models/checkbox.class.js"></script>
 <script src="./js/models/alerts.class.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
     
     <title>Kanal-TV-App</title>
@@ -70,17 +71,21 @@
           </div>
      </div>
 
+     <div class="sidebar-content padding" id="content-info">
+        
+     </div>
+
      <div class="sidebar-search-box">
          <h3 id="heading-searchbox">Suche nach:</h3>
 
          <div id="input-order" class="d-none">
-            <input class="order-input" placeholder="Name" type="text">
+            <input class="order-input" id="sidebar-input-name" placeholder="Name" type="text">
     
-            <input class="order-input" placeholder="Straße" type="text">
+            <input class="order-input" id="sidebar-input-street"  placeholder="Straße" type="text">
     
-            <input class="order-input" placeholder="PLZ" type="text">
+            <input class="order-input" id="sidebar-input-zip"  placeholder="PLZ" type="text">
     
-            <input class="order-input" placeholder="Ort" type="text">
+            <input class="order-input" id="sidebar-input-location"  placeholder="Ort" type="text">
          </div>
 
          <input id="sidebar-input" type="search" placeholder="Suche">

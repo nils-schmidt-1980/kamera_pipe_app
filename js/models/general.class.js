@@ -29,19 +29,6 @@ document.cookie = `aarindex=${arrindex}; expires=`+
                   a.toGMTString()+';'; 
     }
 
-    //load Cookie for Index
-    loadCookie() {
-      if(document.cookie) {
-         a = document.cookie;
-         cookiename = a.substring(0,a.indexOf('='));
-         if(a.indexOf(';') != -1)
-{        cookiewert = a.substring(a.indexOf('=')+1,a.indexOf(';'));}
-else{cookiewert = a.substr(a.indexOf('=')+1,a.length);
-        
-}
-      }
-
-    }
 
     //New Order Sidebar
    newOrder() {

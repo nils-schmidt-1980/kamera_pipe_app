@@ -5,6 +5,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .break {
     width: 100% !important;
     height: 0px;
@@ -52,6 +56,10 @@ hr {
 
 .small-font {
     font-size: 14px;
+}
+
+.pos-relative {
+    position: relative;
 }
 
 .flex {
@@ -319,10 +327,25 @@ aside {
     padding-right: 8px;
 }
 
+.sidebar-content p {
+ font-size: 20px;
+ color: gray;
+ text-align: center;
+}
+
+.sidebar-content {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .close-sidebar {
+    margin-top: 16px;
+    margin-bottom: 16px;
     margin-right: 16px;
     cursor: pointer;
 }
+
+
 
 #input-order {
     display: flex;
@@ -451,6 +474,10 @@ aside {
     max-width: 600px;
 }
 
+.order-list-box:hover {
+    opacity: 0.6;
+}
+
 
 .order-list-content {
     display: flex;
@@ -503,6 +530,12 @@ aside {
     align-items: center;
     font-size: 30px;
     padding-right: 16px;
+    
+}
+
+.sidebar-mainbar span {
+   cursor: crosshair;
+   font-size: 30px;
     
 }
 
@@ -566,6 +599,10 @@ aside {
     padding-bottom: 3px;
 }
 
+#sidebar {
+    max-width: 400px;
+}
+
 .gray {
     color: gray;
 }
@@ -603,6 +640,30 @@ aside {
     justify-content: space-between;
     align-items: center;
     background-color: #0F256E; 
+}
+
+.overlay-img-menu {
+    position: absolute;
+    width: 300px;
+    background-color: #fff;
+    top:144px;
+    right: 0px;
+    z-index: 7000;
+    border:1px solid #000;
+    
+}
+
+.overlay-img-menu h2 {
+    font-size: 25px;
+    padding-top: 16px;
+    text-decoration: underline;
+}
+
+.overlay-img-menu li {
+    font-size: 21px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .adress {
@@ -765,6 +826,31 @@ aside {
     border: none !important;
 }
 
+.btn-secondary  {
+    background-color: transparent !important;
+    border: none !important;
+}
 
+.dropdown-toggle::after {
+    content: none !important;
+}
+
+.dropdown-menu {
+    left: 65px !important;
+    border: none !important;
+}
+
+
+
+/*Zwischenablage*/
+#status-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #eee;
+    margin-left: 120px;
+    padding: 20px 15px;
+}
 
 

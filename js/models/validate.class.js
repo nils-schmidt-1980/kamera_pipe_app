@@ -1,6 +1,7 @@
 class Validate extends Input   {
     errors = new Errors().errorInput;  
     alerts = new Alerts(this.errors);
+    general = new General();
     
 
     constructor () {
@@ -45,14 +46,12 @@ class Validate extends Input   {
             this.errors.push('Bitte geben Sie eine Telefonnummer an (Private)')
         }
 
-        
-        this.checkarr();
+        this.checkContentOfArray();
     }
 
-    checkarr() {    
+    checkContentOfArray() {    
         if(this.errors == '') {
-            new Input().saveInputsValues();
-            new General().savelocalstorage();
+            this.saveInputsValues(this.genaral.newOrderArr,this.newOrderJson,'key');
             this.alerts.successfulAlert();
 
         }else {

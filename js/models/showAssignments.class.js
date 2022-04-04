@@ -32,8 +32,7 @@ class Assignments extends General {
                 for (let i = 0; i < this.newOrderArr.length; i++) {
                     let element = this.newOrderArr[i];
                     this.url = i;
-                   
-                    this.setCookie([i]);
+
                     this.orderContainer.innerHTML += `
                 <a href=${'./overlay.html?' + this.url}>
                 <div class="order-list-box">
@@ -102,6 +101,7 @@ class Assignments extends General {
 
     }
 
+    //read index from url
     readIndex() {
         let uebernahme=new String(document.location.href);
         let uebergabe=uebernahme.indexOf("?");

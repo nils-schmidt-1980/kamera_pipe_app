@@ -40,13 +40,20 @@ genaral = new General();
     initialNode = document.getElementById('initial-node').value
     intervalRemark = document.getElementById('interval-remark').value
     
-
+    readSidebarInputs() {
     //home-sidebar-inputs**manuel enter**
     sidebarName = document.getElementById('sidebar-input-name').value
     sidebarStreet = document.getElementById('sidebar-input-street').value
     sidebarZip = document.getElementById('sidebar-input-zip').value
-    sidebarLocation = document.getElementById('sidebar-input-location').value
 
+    //Input Json Sidebar
+    inputSidebarJson = {
+        'sidebar-name' : sidebarName,
+        'sidebar-street' : sidebarStreet,
+        'sidebarZip' : sidebarZip
+    }
+    }
+    
     //Input Json
     newOrderJson = 
         {
@@ -94,8 +101,8 @@ genaral = new General();
       
     }
 
-    saveInputsValues() {
-        this.genaral.newOrderArr.push(this.newOrderJson);
-        this.genaral.savelocalstorage();
+    saveInputsValues(arr,content,key) {
+        arr.push(content);
+        this.genaral.savelocalstorage(key);
     }
 }

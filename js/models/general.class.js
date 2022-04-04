@@ -1,22 +1,23 @@
 class General {
 
-   key;
- 
    constructor() {
-      this.loadlocalStorage();
+    
    }
 
+//Variablen
+
+//Arrays
 newOrderArr = [];
 
+   //Save local Storage
     savelocalstorage(key){
-
-     //Save Customer
         let inputAsText = JSON.stringify(this.newOrderArr);
         localStorage.setItem(key, inputAsText);
     }
 
-    loadlocalStorage() {
-    let myCustromer = localStorage.getItem('key');
+   //load local Storage
+    loadlocalStorage(key) {
+    let myCustromer = localStorage.getItem(key);
 
     if(myCustromer) {
       this.newOrderArr = JSON.parse(myCustromer);

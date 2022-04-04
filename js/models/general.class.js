@@ -4,7 +4,7 @@ class General {
     
    }
 
-//Variablen
+//Globale Variablen
 
 //Arrays
 newOrderArr = [];
@@ -15,7 +15,7 @@ newOrderArr = [];
         localStorage.setItem(key, inputAsText);
     }
 
-   //load local Storage
+   //load local Storage and safe in the array
     loadlocalStorage(key) {
     let myCustromer = localStorage.getItem(key);
 
@@ -25,13 +25,7 @@ newOrderArr = [];
     }
 
   
-    //New Order Sidebar
-   newOrder() {
-   let order = document.getElementById('new-order');
-   order.classList.add ('d-none');
-   let sidebar = document.getElementById('sidebar');
-   sidebar.classList.remove ('d-none');
-}
+ 
    
     
 

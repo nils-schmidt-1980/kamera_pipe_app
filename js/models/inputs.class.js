@@ -77,7 +77,7 @@ genaral = new General();
             'owner-housenumber' : this.ownerHousenumber,
             'owner-zip' : this.ownerZip,
             'owner-location' : this.ownerLocation,
-            'owner-worphone' : this.ownerTelWork,
+            'owner-workphone' : this.ownerTelWork,
             'owner-privatephone' : this.ownerTelPrivate,
             'owner-email' : this.ownerEmail,
             'owner-url' : this.ownerUrl,

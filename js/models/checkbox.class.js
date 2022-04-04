@@ -4,7 +4,7 @@ class  CheckCheckbox extends General {
     }
 
     //Checkbox Sidebar
-    checkCheckbox() {
+    checkCheckboxSidebar() {
     if (document.getElementById('check-manual').checked) {
         document.getElementById('heading-searchbox').innerHTML = 'Neuen Kunden anlegen';
         document.getElementById('content-info').innerHTML +=`<p>

@@ -5,7 +5,7 @@ let alerts;
 
 
 function init() {
-    show = new Assignments() 
+    show = new Assignments(); 
     console.log('My Window is: ' , show);
     if(window.location.pathname == '/index.html') {
         ScreenStart = new StartScreen().startScreen();
@@ -15,7 +15,7 @@ function init() {
 
     else if(window.location.pathname == '/home.html') {
         //Load at home.html
-        show.loadlocalStorage();
+        show.loadlocalStorage('key');
         show.showHome();
         show.navMenu.showNavMenu();
         
@@ -31,6 +31,7 @@ function init() {
     }
 
     else if(window.location.pathname == '/overlay.html') {
+       show.loadlocalStorage('key'); 
        show.showOverlays();
     }
     }

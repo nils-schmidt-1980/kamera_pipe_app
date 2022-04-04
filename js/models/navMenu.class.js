@@ -3,7 +3,7 @@ navMenu = ['Home','Neue Inspektion anlegen', 'Kundenverzeichnis','Monteurbuchung
 menuPfad = ['./home.html','./new-order.html','#','#','#','#','./index.html'];
 
 constructor() {
-
+   
 }
 //Open Nav Menu
 openMenu() {

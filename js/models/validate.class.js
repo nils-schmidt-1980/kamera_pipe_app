@@ -52,9 +52,12 @@ class Validate extends Input   {
     checkContentOfArray() {    
         if(this.errors == '') {
             this.saveInputsValues(this.genaral.newOrderArr,this.newOrderJson,'key');
+
+            //positiv report Alert
             this.alerts.successfulAlert();
 
         }else {
+            //negative report Alert
            this.alerts.createAlert();
         }
     }

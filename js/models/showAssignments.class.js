@@ -3,6 +3,7 @@ class Assignments extends General {
     navMenu = new Navmenu();
     checkbox = new CheckCheckbox();
     url;
+    include = new Include();
    
 
     detailInspect = document.getElementById('insepct-detail');
@@ -13,6 +14,8 @@ class Assignments extends General {
     bodyContainer = document.getElementById('order-container');
     contactContainer = document.getElementById('contact-container');
 
+    mapsLink = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2367.7360368069667!2d10.440887915847956!3d53.59817138003253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1f8279aeb5f13%3A0x6c75d0d33164b8d6!2sKieselstra%C3%9Fe%201%2C%2022929%20Hamfelde!5e0!3m2!1sde!2sde!4v1648033257152!5m2!1sde!2sde'
+
     
 
 
@@ -21,13 +24,11 @@ class Assignments extends General {
     }
 
     showHome() {
-        
-            if(this.newOrderArr.length == 0) {
+        if(this.newOrderArr.length == 0) {
                 this.orderContainer.innerHTML += `<p class='empty-text'>Es liegen zurzeit keine offenen Inspektionen vor.<br>
                 Füge einen neuen Auftrag hinzu</p>`;
                 
             }else {
-
                 this.orderContainer.innerHTML = '';
                 for (let i = 0; i < this.newOrderArr.length; i++) {
                     let element = this.newOrderArr[i];
@@ -65,20 +66,10 @@ class Assignments extends General {
                         Beschreibung
                         </div>
                     </div>
-
                     <div class="order-list-sidebar">
                     <div class='sidebar-mainbar' onclick='sidebarMenu(${[i]})'>
-                   <span onclick='return false;'>
-                   <button style='border:none !important;' class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                   <span>···</span>
-                 </button>
-                 
-                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                   <h2 class="text-center" style="font-size: 22px;">Datein</h2>
-                   <li><button class="dropdown-item" type="button">Datei 1</button></li>
-                   <li><button class="dropdown-item" type="button">Datei 2</button></li>
-                   <li><button class="dropdown-item" type="button">Datei 3</button></li>
-                 </ul>
+                   <span>
+                    ${this.include.includeDropdown()}
                    </span>
                     </div>
                     <div id='sidebar-menu${[i]} class='sidebar-menu d-none'>
@@ -88,26 +79,14 @@ class Assignments extends General {
                         <div>23.03.2021</div>
                         <div>Aktiv</div>
                         <hr>
-                        <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2367.7360368069667!2d10.440887915847956!3d53.59817138003253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1f8279aeb5f13%3A0x6c75d0d33164b8d6!2sKieselstra%C3%9Fe%201%2C%2022929%20Hamfelde!5e0!3m2!1sde!2sde!4v1648033257152!5m2!1sde!2sde" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+                        <div><iframe src="${this.mapsLink}" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
                     </div>    
                     </div>
                 </div><a>
              `
-                    
-                }
-                
-                
-            }
-
-    }
-
-    //read the index from the array from the url
-    readIndex() {
-        let uebernahme=new String(document.location.href);
-        let uebergabe=uebernahme.indexOf("?");
-        let a=new String(uebernahme.substring(uebergabe+1,uebergabe+2));
-        return a;
-    }
+             }
+           }
+}
 
     showOverlays() {
         this.showOverlayHeader();
@@ -132,8 +111,7 @@ class Assignments extends General {
          ${this.outputs('bv-zip', 'bv-location')}
         <span class="small-font"></span>
         </p>
-        `
-                                
+        `                        
         }
 
     showOverlayBody() {
@@ -151,32 +129,19 @@ class Assignments extends General {
                        <img src="./images/icons/black/settings.png" class="icon" alt="">
                        <h3>${this.outputs('bv-firstname', 'bv-lastname')}</h3>
                     </div>
-       
-                    <div>
+                     <div>
                         <a href="#"><img src="./images/icons/black/info.png" class="icon" alt="" title="Auftragshistory"></a>        
                     </div>
                 </div>
-       
                 <p class="small-heading">Tätigkeiten:</p>
                 <span>Kamerabefahrung</span>
-       
-                <hr>
-       
-                <p class="small-heading">Bemerkungen:</p>
+                 <hr>
+                 <p class="small-heading">Bemerkungen:</p>
                 <span>${this.outputs('interval-remark')}</span>
        `
     }
 
-    outputs(a,b) {
-        let inputA = this.newOrderArr[this.readIndex()][a];
-        let inputB = this.newOrderArr[this.readIndex()][b];
-
-       if(a && b) { 
-        return inputA + ' ' + inputB;
-       }else {
-        return inputA;
-       }
-     }
+    
 
     showContact() {
         this.contactContainer.innerHTML = '';

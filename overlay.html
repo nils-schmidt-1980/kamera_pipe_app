@@ -16,6 +16,7 @@
         <script src="./js/models/alerts.class.js"></script>     
         <script src="./js/models/validate.class.js"></script>
         <script src="./js/models/errors.class.js"></script>
+        <script src="./js/models/include.class.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/style.css">
         <title>Inspektion erstellen</title>
@@ -160,47 +161,15 @@
             </div><!--end header-->
 
             <div class="video-container padding margin">
-               <video class="video-box"  controls>
-                        <source src="movie.mp4" type="video/mp4">
-                        <source src="movie.ogg" type="video/ogg">
-                      Your browser does not support the video tag. <!-- Text to be shown incase browser doesnt support html5 -->
-                      </video>
-                      <div class="video-controls">
-                          <img src="./images/icons/red/record.png" class="icon" title="Aufnahme starten" alt="">
-                          <div class="round-btn" onclick="openVbo()" title="Geben Sie hier eine Feststellung an">Feststellung angeben</div>
-                          <img src="./images/icons/white/pause.png" class="icon" title="Pause" alt="">
-                          <img src="./images/icons/red/stop.png" class="icon" title="Stop" alt="">
-                      </div>
+               <div class="setting-box">
+                   <!--Left side-->
+               </div>
 
-                      <div id="video-box-overlay" class="d-none padding">
-                        <div class="vbo-mainbar padding">
-                            <span>Feststellung aufnehmen</span><span class="close-vbo-mainbar" onclick="closeVbo()">x</span>
-                        </div>
-
-                        <div class="vbo-main">
-                            <div class="vbo-control-box">
-                                <div>
-                                    <span class="text-center d-block small-heading">Abzweigung</span>
-                                    <select class="form-select" multiple aria-label="multiple select example">
-                                        <option selected>Wählen sie die Abzweigsrichtung</option>
-                                        <option value="12 Uhr">12 Uhr Kämpfer oben</option>
-                                        <option value="03 Uhr">03 Uhr Kämpfer rechts</option>
-                                        <option value="06 Uhr">06 Uhr Kämpfer unten</option>
-                                        <option value="09 Uhr">09 Uhr Kämpfer links</option>
-                                      </select>
-                                </div>
-                            </div>
-                            <div class="vbo-view-container">
-                                <div class="vbo-picture-box">
-                                    <!--picture-box-->
-                                </div>
-                                <div class="vbo-description-box">
-                                    <textarea placeholder="Bildbeschreibung"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+               <div class="video-box">
+                <video autoplay></video>
+                <p>Keine Medien</p>
+                <canvas class="d-none"></canvas>
+               </div>
             </div>
 
                 
